@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.FirstMenuController"
+            prefHeight="400.0" prefWidth="600.0">
+    <center>
+        <GridPane vgap="10" alignment="CENTER">
+            <Label text="Add meg a játékosok nevét!" GridPane.rowIndex="0" GridPane.columnIndex="0"></Label>
+            <HBox GridPane.rowIndex="1" GridPane.columnIndex="0" spacing="10">
+                <Label text="1.játékos"></Label>
+                <TextField fx:id="playerOne" onKeyReleased="#handleKeyReleased"></TextField>
+            </HBox>
+            <HBox GridPane.rowIndex="2" GridPane.columnIndex="0" spacing="10">
+                <Label text="2.játékos"></Label>
+                <TextField fx:id="playerTwo" onKeyReleased="#handleKeyReleased"></TextField>
+            </HBox>
+            <Button fx:id="startButton" text="Játék indítása" GridPane.rowIndex="3" GridPane.columnIndex="0" onAction="#clickHandler"></Button>
+        </GridPane>
+    </center>
+</BorderPane>
