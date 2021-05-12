@@ -44,6 +44,7 @@ public class FirstMenuController {
         GameBoardController controller = fxmlLoader.<GameBoardController>getController();
         controller.setPlayer1(playerOne.getText());
         controller.setPlayer2(playerTwo.getText());
+        controller.setNextPlayer(playerOne.getText());
         Scene scene = new Scene(root, 800, 600);
         stage.setScene(scene);
         stage.setResizable(false);

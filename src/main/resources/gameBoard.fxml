@@ -1,39 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.shape.Circle?>
-<?import javafx.scene.text.Font?>
-<BorderPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controller.GameBoardController"
-            prefHeight="400.0" prefWidth="600.0"
-            fx:id="borderPane">
+<BorderPane fx:id="borderPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GameBoardController">
     <left>
         <VBox alignment="CENTER">
             <padding>
-                <Insets left="30"/>
+                <Insets left="30" />
             </padding>
-            <GridPane fx:id="gridPane" prefWidth="500" alignment="CENTER" gridLinesVisible="true">
+            <GridPane fx:id="gridPane" alignment="CENTER" gridLinesVisible="true" prefWidth="500">
             </GridPane>
         </VBox>
 
     </left>
     <top>
        <VBox alignment="CENTER">
-           <Label fx:id="informationLabel1" >
+         <HBox>
+             <padding>
+                 <Insets left="60" right="10" />
+             </padding>
+            <children>
+                <Label  text="It's your turn," style="-fx-font-weight: bold">
+                    <font>
+                        <Font name="Times New Roman" size="16" />
+                    </font>
+                </Label>
+                 <Label fx:id="informationLabel1" style="-fx-font-weight: bold">
+                     <font>
+                         <Font name="Times New Roman" size="16" />
+                     </font>
+                 </Label>
+
+            </children>
+         </HBox>
+           <Label fx:id="informationLabel2" style="-fx-font-weight: bold" textFill="red">
                <font>
-                   <Font name="Times New Roman bold" size="16"/>
-               </font>
-           </Label>
-           <Label fx:id="informationLabel2" >
-               <font>
-                   <Font name="Times New Roman bold" size="16"/>
+                   <Font name="Times New Roman bold" size="16" />
                </font>
            </Label>
        </VBox>

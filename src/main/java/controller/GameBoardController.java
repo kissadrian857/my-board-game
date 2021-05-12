@@ -31,6 +31,7 @@ public class GameBoardController {
     private Label informationLabel2;
     private StringProperty player1 = new SimpleStringProperty();
     private StringProperty player2 = new SimpleStringProperty();
+    private StringProperty nextPlayer = new SimpleStringProperty();
 
     private final Background WHITE_BACKGROUND = new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, new Insets(1, 1, 1, 1)));
     private final Background YELLOW_BACKGROUND = new Background(new BackgroundFill(Color.YELLOW, CornerRadii.EMPTY, new Insets(1, 1, 1, 1)));
@@ -40,6 +41,21 @@ public class GameBoardController {
     private void initialize() {
         createBoard();
         createPieces();
+        informationLabel1.textProperty().bind(nextPlayer);
+    }
+
+    public void setNextPlayer(String string) {
+        nextPlayer.set(string);
+    }
+
+    private void alterNextPlayer() {
+        nextPlayer.set(
+                switch (boardGameModel.getNextPlayer()) {
+                    case PLAYER1 -> player1.get();
+                    case PLAYER2 -> player2.get();
+                }
+        );
+        System.out.println(boardGameModel.getNextPlayer());
     }
 
     public void setPlayer1(String name) {
@@ -48,6 +64,10 @@ public class GameBoardController {
 
     public void setPlayer2(String name) {
         this.player2.set(name);
+    }
+
+    public void setInformationLabel1(String string) {
+        informationLabel1.setText(string);
     }
 
     private void createBoard() {
@@ -120,16 +140,11 @@ public class GameBoardController {
         alterSelectedBackgrounds();
         selectedPositions.clear();
         if (boardGameModel.isOver()) {
-            switch (boardGameModel.getNextPlayer().alter()) {
-                case PLAYER1 -> informationLabel1.setText("Congratulations," + player1.get() + ", you won.");
-                case PLAYER2 -> informationLabel1.setText("Congratulations," + player2.get() + ", you won.");
-            }
+            handleGameOver();
         } else {
-            switch (boardGameModel.getNextPlayer()) {
-                case PLAYER1 -> informationLabel1.setText("It's your turn " + player1.get());
-                case PLAYER2 -> informationLabel1.setText("It's your turn " + player2.get());
-            }
+
         }
+        alterNextPlayer();
     }
 
     private void alterPieces() {
@@ -173,6 +188,10 @@ public class GameBoardController {
             }
         }
         return null;
+    }
+
+    private void handleGameOver() {
+        //TODO
     }
 
     private void loadNextScene(Stage stage) {

@@ -1,5 +1,7 @@
 package model;
 
+import javafx.beans.property.ObjectProperty;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,25 +15,18 @@ public class BoardGameModel {
                 case PLAYER2 -> Player.PLAYER1;
             };
         }
-
-        @Override
-        public String toString() {
-            return switch (this){
-                case PLAYER1 -> "Player1";
-                case PLAYER2 -> "Player2";
-            };
-        }
     }
 
     public static final int BOARD_SIZE = 4;
     private List<Operator> operators;
     private State actualState;
     private Player nextPlayer;
+//    private ObjectProperty<Player>nextPlayer;
 
     public BoardGameModel() {
         actualState = State.startState();
 
-        nextPlayer = Player.PLAYER1;
+        nextPlayer=Player.PLAYER1;
 
         operators = new ArrayList<>();
         for (int i = 0; i < BOARD_SIZE; i++) {
