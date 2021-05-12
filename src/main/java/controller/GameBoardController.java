@@ -1,5 +1,7 @@
 package controller;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
@@ -27,6 +29,8 @@ public class GameBoardController {
     private Label informationLabel1;
     @FXML
     private Label informationLabel2;
+    private StringProperty player1 = new SimpleStringProperty();
+    private StringProperty player2 = new SimpleStringProperty();
 
     private final Background WHITE_BACKGROUND = new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, new Insets(1, 1, 1, 1)));
     private final Background YELLOW_BACKGROUND = new Background(new BackgroundFill(Color.YELLOW, CornerRadii.EMPTY, new Insets(1, 1, 1, 1)));
@@ -36,7 +40,14 @@ public class GameBoardController {
     private void initialize() {
         createBoard();
         createPieces();
-        informationLabel1.setText("It's your turn,...");
+    }
+
+    public void setPlayer1(String name) {
+        this.player1.set(name);
+    }
+
+    public void setPlayer2(String name) {
+        this.player2.set(name);
     }
 
     private void createBoard() {
@@ -109,7 +120,15 @@ public class GameBoardController {
         alterSelectedBackgrounds();
         selectedPositions.clear();
         if (boardGameModel.isOver()) {
-            informationLabel1.setText("Game over");
+            switch (boardGameModel.getNextPlayer().alter()) {
+                case PLAYER1 -> informationLabel1.setText("Congratulations," + player1.get() + ", you won.");
+                case PLAYER2 -> informationLabel1.setText("Congratulations," + player2.get() + ", you won.");
+            }
+        } else {
+            switch (boardGameModel.getNextPlayer()) {
+                case PLAYER1 -> informationLabel1.setText("It's your turn " + player1.get());
+                case PLAYER2 -> informationLabel1.setText("It's your turn " + player2.get());
+            }
         }
     }
 

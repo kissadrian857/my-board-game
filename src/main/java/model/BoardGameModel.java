@@ -4,19 +4,40 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BoardGameModel {
+    public enum Player {
+        PLAYER1, PLAYER2;
+
+        public Player alter() {
+            return switch (this) {
+                case PLAYER1 -> Player.PLAYER2;
+                case PLAYER2 -> Player.PLAYER1;
+            };
+        }
+
+        @Override
+        public String toString() {
+            return switch (this){
+                case PLAYER1 -> "Player1";
+                case PLAYER2 -> "Player2";
+            };
+        }
+    }
+
     public static final int BOARD_SIZE = 4;
-    private static final List<String> PLAYERS = new ArrayList<>();
     private List<Operator> operators;
     private State actualState;
+    private Player nextPlayer;
 
     public BoardGameModel() {
         actualState = State.startState();
+
+        nextPlayer = Player.PLAYER1;
 
         operators = new ArrayList<>();
         for (int i = 0; i < BOARD_SIZE; i++) {
             for (int j = 0; j < BOARD_SIZE; j++) {
                 for (int n = 1; n <= BOARD_SIZE - j; n++) {
-                    for (int m = i+1; m >= 1; m--) {
+                    for (int m = i + 1; m >= 1; m--) {
                         Position p = new Position(i, j);
                         Operator o = new Operator(p, n, m);
                         operators.add(o);
@@ -24,6 +45,10 @@ public class BoardGameModel {
                 }
             }
         }
+    }
+
+    public Player getNextPlayer() {
+        return nextPlayer;
     }
 
     public boolean isValidStep(Operator operator) {
@@ -37,6 +62,7 @@ public class BoardGameModel {
 
     public BoardGameModel makeStep(Operator operator) {
         operator.apply(actualState);
+        nextPlayer=nextPlayer.alter();
         return this;
     }
 
@@ -46,25 +72,6 @@ public class BoardGameModel {
 
     public Colour colourOfSquare(Position position) {
         return actualState.colourOfSquare(position);
-    }
-
-    public static List<String> getPlayers() {
-        List<String> temp = new ArrayList<>();
-        for (int i = 0; i < PLAYERS.size(); i++) {
-            String tempstr = new String(PLAYERS.get(i));
-            temp.add(tempstr);
-        }
-        return temp;
-    }
-
-    public static void setPlayerNames(String playerOne, String playerTwo) {
-        if (BoardGameModel.PLAYERS.size() != 2) {
-            PLAYERS.add(playerOne);
-            PLAYERS.add(playerTwo);
-        } else {
-            throw new ArrayStoreException();
-        }
-
     }
 
     @Override

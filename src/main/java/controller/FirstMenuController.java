@@ -26,10 +26,7 @@ public class FirstMenuController {
 
     @FXML
     private void clickHandler(ActionEvent e) throws Exception {
-
-        BoardGameModel.setPlayerNames(playerOne.getText(),playerTwo.getText());
-        System.out.println("Game started"+ " " + BoardGameModel.getPlayers().get(0)+ " "+BoardGameModel.getPlayers().get(1));
-        var stage =(Stage)((Node)e.getSource()).getScene().getWindow();
+        var stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
         loadNextScene(stage);
     }
 
@@ -41,9 +38,13 @@ public class FirstMenuController {
         startButton.setDisable(disableButton);
     }
 
-    private void loadNextScene(Stage stage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("/gameBoard.fxml"));
-        Scene scene = new Scene(root,800,600);
+    private void loadNextScene(Stage stage) throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gameBoard.fxml"));
+        Parent root = fxmlLoader.load();
+        GameBoardController controller = fxmlLoader.<GameBoardController>getController();
+        controller.setPlayer1(playerOne.getText());
+        controller.setPlayer2(playerTwo.getText());
+        Scene scene = new Scene(root, 800, 600);
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
