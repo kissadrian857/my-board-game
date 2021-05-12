@@ -13,10 +13,10 @@ public class BoardGameModel {
         actualState = State.startState();
 
         operators = new ArrayList<>();
-        for (int i = 1; i <= BOARD_SIZE; i++) {
-            for (int j = 1; j <= BOARD_SIZE; j++) {
-                for (int n = 1; n <= BOARD_SIZE + 1 - j; n++) {
-                    for (int m = i; m >= 1; m--) {
+        for (int i = 0; i < BOARD_SIZE; i++) {
+            for (int j = 0; j < BOARD_SIZE; j++) {
+                for (int n = 1; n <= BOARD_SIZE - j; n++) {
+                    for (int m = i+1; m >= 1; m--) {
                         Position p = new Position(i, j);
                         Operator o = new Operator(p, n, m);
                         operators.add(o);

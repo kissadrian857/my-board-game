@@ -60,7 +60,7 @@ public class GameBoardController {
             try {
                 int row = GridPane.getRowIndex(square);
                 int col = GridPane.getColumnIndex(square);
-                Color color = Color.valueOf(boardGameModel.colourOfSquare(new Position(row + 1, col + 1)).toString());
+                Color color = Color.valueOf(boardGameModel.colourOfSquare(new Position(row, col)).toString());
                 ((StackPane) square).getChildren().add(createPiece(color));
             } catch (Exception e) {
                 continue;
@@ -99,16 +99,16 @@ public class GameBoardController {
     }
 
     private void handleMouseSecondary() {
-        Operator operator = Operator.of(helper());
+        Operator operator = Operator.of(selectedPositions);
         if (operator != null && boardGameModel.isValidStep(operator)) {
             boardGameModel.makeStep(operator);
             alterPieces();
-        }else{
+        } else {
             informationLabel2.setText("Invalid operation");
         }
         alterSelectedBackgrounds();
         selectedPositions.clear();
-        if(boardGameModel.isOver()){
+        if (boardGameModel.isOver()) {
             informationLabel1.setText("Game over");
         }
     }
@@ -126,7 +126,7 @@ public class GameBoardController {
     }
 
     private void alterPiece(Position position) {
-        Color color = Color.valueOf(boardGameModel.colourOfSquare(new Position(position.getRow() + 1, position.getCol() + 1)).toString());
+        Color color = Color.valueOf(boardGameModel.colourOfSquare(position).toString());
         StackPane square = getSquare(position);
         ((Circle) square.getChildren().get(0)).setFill(color);
     }
@@ -156,17 +156,7 @@ public class GameBoardController {
         return null;
     }
 
-    private List<Position> helper() {
-        List<Position> helper = new ArrayList<>();
-        for (Position p : selectedPositions) {
-            int row = p.getRow() + 1;
-            int col = p.getCol() + 1;
-            helper.add(new Position(row, col));
-        }
-        return helper;
-    }
-
-    private void loadNextScene(Stage stage){
+    private void loadNextScene(Stage stage) {
         //TODO
     }
 }
