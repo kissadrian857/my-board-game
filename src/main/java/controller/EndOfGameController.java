@@ -8,8 +8,8 @@ import javafx.scene.image.ImageView;
 public class EndOfGameController {
     @FXML
     public ImageView cupImageView;
-//    @FXML
-//    private Label informLabel;
+    @FXML
+    private Label resultLabel;
     @FXML
     private void initialize(){
         Image image = new Image(getClass().getResourceAsStream("/cup.png"));
@@ -17,6 +17,10 @@ public class EndOfGameController {
         cupImageView.setFitWidth(300);
         cupImageView.setFitHeight(300);
         cupImageView.setPreserveRatio(true);
+    }
+
+    public void setResultLabel(String playerName){
+        resultLabel.setText("Congratulations,"+ playerName + " !");
     }
 
 }

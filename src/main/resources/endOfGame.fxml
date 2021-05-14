@@ -11,7 +11,7 @@
    <children>
       <HBox alignment="CENTER" layoutY="43.0" prefHeight="100.0" prefWidth="800.0">
          <children>
-            <Label text="Congratulations,Adrián!" textFill="yellow">
+            <Label fx:id="resultLabel" text="Congratulations,Adrián!" textFill="yellow">
                <font>
                   <Font name="System Bold Italic" size="50.0" />
                </font>

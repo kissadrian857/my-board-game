@@ -129,9 +129,11 @@ public class GameBoardController {
         StackPane square = getSquare(position);
         if (!selectedPositions.contains(position)) {
             selectedPositions.add(new Position(position.getRow(), position.getCol()));
+            square.setBackground(YELLOW_BACKGROUND);
+        }else {
+            square.setBackground(WHITE_BACKGROUND);
+            selectedPositions.remove(position);
         }
-        Background background = YELLOW_BACKGROUND;
-        square.setBackground(background);
     }
 
     private void handleMouseSecondary(MouseEvent event) {
@@ -199,6 +201,7 @@ public class GameBoardController {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/endOfGame.fxml"));
             Parent root = fxmlLoader.load();
             EndOfGameController controller = fxmlLoader.<EndOfGameController>getController();
+            controller.setResultLabel(nextPlayer.get());
             Scene scene = new Scene(root, 800, 600);
             stage.setScene(scene);
             stage.setResizable(false);
