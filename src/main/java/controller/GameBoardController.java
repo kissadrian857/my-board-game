@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -132,7 +133,7 @@ public class GameBoardController {
             boardGameModel.makeStep(operator);
             alterPieces();
         } else {
-
+            handleInvalidStep();
         }
         alterSelectedBackgrounds();
         selectedPositions.clear();
@@ -186,6 +187,14 @@ public class GameBoardController {
     }
 
     private void handleGameOver() {
+        //TODO
+    }
 
+    private void handleInvalidStep(){
+        System.out.println("fos");
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Warning");
+        alert.setHeaderText("Invalid step!");
+        alert.showAndWait();
     }
 }
