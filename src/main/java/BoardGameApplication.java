@@ -7,9 +7,9 @@ import javafx.stage.Stage;
 public class BoardGameApplication extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/firstMenu.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/mainMenu.fxml"));
         stage.setTitle("JavaFX Board Game");
-        Scene scene = new Scene(root,800,600);
+        Scene scene = new Scene(root,400,400);
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();

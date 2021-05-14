@@ -27,8 +27,8 @@ public class GameBoardController {
     private GridPane gridPane;
     @FXML
     private Label informationLabel1;
-    @FXML
-    private Label informationLabel2;
+//    @FXML
+//    private Label informationLabel2;
     private StringProperty player1 = new SimpleStringProperty();
     private StringProperty player2 = new SimpleStringProperty();
     private StringProperty nextPlayer = new SimpleStringProperty();
@@ -120,7 +120,7 @@ public class GameBoardController {
     }
 
     private void handleMousePrimary(Position position) {
-        informationLabel2.setText("");
+//        informationLabel2.setText("");
         StackPane square = getSquare(position);
         if (!selectedPositions.contains(position)) {
             selectedPositions.add(new Position(position.getRow(), position.getCol()));
@@ -135,7 +135,7 @@ public class GameBoardController {
             boardGameModel.makeStep(operator);
             alterPieces();
         } else {
-            informationLabel2.setText("Invalid operation");
+//            informationLabel2.setText("Invalid operation");
         }
         alterSelectedBackgrounds();
         selectedPositions.clear();
@@ -191,10 +191,6 @@ public class GameBoardController {
     }
 
     private void handleGameOver() {
-        //TODO
-    }
-
-    private void loadNextScene(Stage stage) {
         //TODO
     }
 }
