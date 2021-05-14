@@ -4,10 +4,14 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
@@ -18,6 +22,7 @@ import model.BoardGameModel;
 import model.Operator;
 import model.Position;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -116,7 +121,7 @@ public class GameBoardController {
         if (event.getButton() == MouseButton.PRIMARY) {
             handleMousePrimary(new Position(row, col));
         } else if (event.getButton() == MouseButton.SECONDARY) {
-            handleMouseSecondary();
+            handleMouseSecondary(event);
         }
     }
 
@@ -129,7 +134,7 @@ public class GameBoardController {
         square.setBackground(background);
     }
 
-    private void handleMouseSecondary() {
+    private void handleMouseSecondary(MouseEvent event) {
         Operator operator = Operator.of(selectedPositions);
         if (operator != null && boardGameModel.isValidStep(operator)) {
             boardGameModel.makeStep(operator);
@@ -140,7 +145,8 @@ public class GameBoardController {
         alterSelectedBackgrounds();
         selectedPositions.clear();
         if (boardGameModel.isOver()) {
-            handleGameOver();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            handleGameOver(stage);
         }
         alterNextPlayer();
     }
@@ -188,12 +194,21 @@ public class GameBoardController {
         return null;
     }
 
-    private void handleGameOver() {
-        //TODO
+    private void handleGameOver(Stage stage) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/endOfGame.fxml"));
+            Parent root = fxmlLoader.load();
+            EndOfGameController controller = fxmlLoader.<EndOfGameController>getController();
+            Scene scene = new Scene(root, 800, 600);
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
-    private void handleInvalidStep(){
-        System.out.println("fos");
+    private void handleInvalidStep() {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Warning");
         alert.setHeaderText("Invalid step!");

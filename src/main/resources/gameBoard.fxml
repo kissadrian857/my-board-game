@@ -23,8 +23,10 @@
                 <GridPane fx:id="gridPane" alignment="CENTER" gridLinesVisible="true" prefWidth="614.0">
                <columnConstraints>
                   <ColumnConstraints />
+                  <ColumnConstraints />
                </columnConstraints>
                <rowConstraints>
+                  <RowConstraints />
                   <RowConstraints />
                </rowConstraints></GridPane>
             </children>
