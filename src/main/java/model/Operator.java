@@ -57,6 +57,9 @@ public class Operator {
     }
 
     public static Operator of(List<Position> positions) {
+        if(positions.isEmpty()){
+            return null;
+        }
         int minRow = Integer.MAX_VALUE;
         int maxRow = Integer.MIN_VALUE;
         int minCol = Integer.MAX_VALUE;

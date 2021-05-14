@@ -28,6 +28,8 @@ public class GameBoardController {
     private GridPane gridPane;
     @FXML
     private Label informationLabel1;
+    @FXML
+    private Label informationLabel2;
 
     private StringProperty player1 = new SimpleStringProperty();
     private StringProperty player2 = new SimpleStringProperty();
