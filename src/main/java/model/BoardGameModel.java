@@ -1,5 +1,7 @@
 package model;
 
+import org.tinylog.Logger;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,6 +40,8 @@ public class BoardGameModel {
                 }
             }
         }
+
+        Logger.debug("BoardGameModel object initialized.");
     }
 
     public Player getNextPlayer() {

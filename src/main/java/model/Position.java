@@ -1,5 +1,7 @@
 package model;
 
+import org.tinylog.Logger;
+
 public class Position {
     private int row;
     private int col;

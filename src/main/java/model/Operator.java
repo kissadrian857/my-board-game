@@ -1,7 +1,6 @@
 package model;
 
 import java.util.List;
-import java.util.StringJoiner;
 
 public class Operator {
     private Position from;
@@ -35,18 +34,6 @@ public class Operator {
         return state;
     }
 
-//    @Override
-//    public String toString() {
-//        StringBuilder s = new StringBuilder();
-//        StringJoiner sj = new StringJoiner(",", "(", ")");
-//        sj.add(Integer.toString(from.getRow()))
-//                .add(Integer.toString(from.getCol()))
-//                .add(Integer.toString(n))
-//                .add(Integer.toString(m));
-//
-//        return s.append(sj.toString()).toString();
-//    }
-
     @Override
     public boolean equals(Object operator) {
         if (operator == this) {
@@ -57,7 +44,7 @@ public class Operator {
     }
 
     public static Operator of(List<Position> positions) {
-        if(positions==null || positions.isEmpty()){
+        if (positions == null || positions.isEmpty()) {
             return null;
         }
         int minRow = Integer.MAX_VALUE;

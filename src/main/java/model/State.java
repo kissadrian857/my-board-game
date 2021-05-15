@@ -1,5 +1,7 @@
 package model;
 
+import org.tinylog.Logger;
+
 import static model.BoardGameModel.BOARD_SIZE;
 
 public class State {
@@ -12,6 +14,8 @@ public class State {
                 squares[i][j] = new Square(p, null);
             }
         }
+
+        Logger.debug("State object initialized.");
     }
 
     public static State startState() {
@@ -43,17 +47,6 @@ public class State {
         return squares[row][col].getColour();
     }
 
-//    @Override
-//    public String toString() {
-//        StringBuilder s = new StringBuilder();
-//        for (int i = 0; i < BOARD_SIZE; i++) {
-//            for (int j = 0; j < BOARD_SIZE; j++) {
-//                s.append(squares[i][j].toString()).append(" ");
-//            }
-//            s.append("\n");
-//        }
-//        return s.toString();
-//    }
 
     public boolean isGoal() {
         for (int i = 0; i < BOARD_SIZE; i++) {
@@ -64,22 +57,4 @@ public class State {
         return true;
     }
 
-//    @Override
-//    public boolean equals(Object state) {
-//        if (state == this) {
-//            return true;
-//        }
-//        if (state instanceof State s) {
-//            for (int i = 0; i < BOARD_SIZE; i++) {
-//                for (int j = 0; j < BOARD_SIZE; j++) {
-//                    if (!s.squares[i][j].equals(this.squares[i][j])) {
-//                        return false;
-//                    }
-//                }
-//            }
-//        } else {
-//            return false;
-//        }
-//        return true;
-//    }
 }

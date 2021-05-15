@@ -1,5 +1,7 @@
 package model;
 
+import org.tinylog.Logger;
+
 public class Square {
     private Position position;
     private Colour colour;
