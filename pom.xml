@@ -8,6 +8,15 @@
     <version>1.0</version>
     <packaging>jar</packaging>
     <description>Two player board game with coins</description>
+    <developers>
+        <developer>
+            <id>kissadrian</id>
+            <name>Kiss Adrián Imre</name>
+            <email>kisswadrian857@gmail.com</email>
+            <organization>Faculty of Informatics, University of Debrecen</organization>
+            <organizationUrl>https://inf.unideb.hu/</organizationUrl>
+        </developer>
+    </developers>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>16</maven.compiler.source>
