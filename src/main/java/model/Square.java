@@ -1,7 +1,8 @@
 package model;
 
-import org.tinylog.Logger;
-
+/**
+ * Represents a square in a game.
+ */
 public class Square {
     private Position position;
     private Colour colour;
@@ -10,6 +11,12 @@ public class Square {
         this.colour = colour;
     }
 
+    /**
+     * Creates a {@code Square} object.
+     *
+     * @param position the position that we want to assign to the square
+     * @param colour the colour that we want to assign to the square
+     */
     public Square(Position position, Colour colour) {
         this.position = position;
         this.colour = colour;
