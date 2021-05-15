@@ -26,7 +26,7 @@ public class BoardGameModel {
     public BoardGameModel() {
         actualState = State.startState();
 
-        nextPlayer=Player.PLAYER1;
+        nextPlayer = Player.PLAYER1;
 
         operators = new ArrayList<>();
         for (int i = 0; i < BOARD_SIZE; i++) {
@@ -56,8 +56,10 @@ public class BoardGameModel {
     }
 
     public BoardGameModel makeStep(Operator operator) {
-        operator.apply(actualState);
-        nextPlayer=nextPlayer.alter();
+        if (isValidStep(operator)) {
+            operator.apply(actualState);
+            nextPlayer = nextPlayer.alter();
+        }
         return this;
     }
 
