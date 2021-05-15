@@ -29,7 +29,7 @@ public class BoardGameModel {
     private Player nextPlayer;
 
     /**
-     * Creates a {@code BoardGameModel} object.
+     * Creates a {@code BoardGameModel} object and creates all the possible valid operators and stores it in a {@code List} object.
      */
     public BoardGameModel() {
         actualState = State.startState();
