@@ -5,7 +5,13 @@ import org.tinylog.Logger;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class that represents the board game and contains business logic.
+ */
 public class BoardGameModel {
+    /**
+     * Enum that represents two players playing the board game.
+     */
     public enum Player {
         PLAYER1, PLAYER2;
 
@@ -21,8 +27,10 @@ public class BoardGameModel {
     private List<Operator> operators;
     private State actualState;
     private Player nextPlayer;
-//    private ObjectProperty<Player>nextPlayer;
 
+    /**
+     * Creates a {@code BoardGameModel} object
+     */
     public BoardGameModel() {
         actualState = State.startState();
 
@@ -48,8 +56,15 @@ public class BoardGameModel {
         return nextPlayer;
     }
 
+    /**
+     * Checks if the given operator is applicable on the actual state.
+     *
+     * @param operator the operator to be checked
+     * @return {@code true} if possible to apply the given operator on the actual state;
+     *         {@code false} otherwise
+     */
     public boolean isValidStep(Operator operator) {
-        if(operator == null){
+        if (operator == null) {
             return false;
         }
         for (var o : operators) {
@@ -60,6 +75,12 @@ public class BoardGameModel {
         return false;
     }
 
+    /**
+     * Applies an operator on the actual state,if possible.
+     *
+     * @param operator the operator to be applied on the actual state
+     * @return the same object on which the function is invoked
+     */
     public BoardGameModel makeStep(Operator operator) {
         if (isValidStep(operator)) {
             operator.apply(actualState);
@@ -68,16 +89,24 @@ public class BoardGameModel {
         return this;
     }
 
+    /**
+     * Determines whether the game is over or not.
+     *
+     * @return {@code true} if the game is over;
+     *         {@code false} otherwise
+     */
     public boolean isOver() {
         return actualState.isGoal();
     }
 
+    /**
+     * Returns the colour of the square on the actual position.
+     *
+     * @param position the position on which we want to know the colour
+     * @return colour of the square on position
+     */
     public Colour colourOfSquare(Position position) {
         return actualState.colourOfSquare(position);
     }
 
-//    @Override
-//    public String toString() {
-//        return actualState.toString();
-//    }
 }
