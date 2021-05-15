@@ -1,7 +1,5 @@
 package model;
 
-import javafx.beans.property.ObjectProperty;
-
 import java.util.ArrayList;
 import java.util.List;
 
