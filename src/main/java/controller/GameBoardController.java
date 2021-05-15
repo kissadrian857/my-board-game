@@ -20,6 +20,8 @@ import javafx.stage.Stage;
 import model.BoardGameModel;
 import model.Operator;
 import model.Position;
+import result.Result;
+import result.ResultContainer;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -197,6 +199,7 @@ public class GameBoardController {
 
     private void handleGameOver(Stage stage) {
         try {
+            ResultContainer.addResult(new Result(player1.get(),player2.get(),nextPlayer.get()));
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/endOfGame.fxml"));
             Parent root = fxmlLoader.load();
             EndOfGameController controller = fxmlLoader.<EndOfGameController>getController();
