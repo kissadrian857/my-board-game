@@ -2,21 +2,44 @@ package model;
 
 import java.util.List;
 
+/**
+ * Class that represents operators.
+ */
 public class Operator {
     private Position from;
     private int n;
     private int m;
 
+    /**
+     * Creates a {@code Operator} object.
+     *
+     * @param from the left down corner of the rectangle
+     * @param n    the horizontal length of the rectangle
+     * @param m    the vertical length of the rectangle
+     */
     public Operator(Position from, int n, int m) {
         this.from = from;
         this.n = n;
         this.m = m;
     }
 
+    /**
+     * Determines whether the operator is applicable on a given {@code State} object.
+     *
+     * @param state the state that we want to know whether the operator is applicable or not
+     * @return {@code true} if the operator is applicable on the given {@code State} object;
+     * {@code false} otherwise
+     */
     public boolean isApplicable(State state) {
         return state.colourOfSquare(from).equals(Colour.BLUE);
     }
 
+    /**
+     * Applies the operator on a given {@code State} object.
+     *
+     * @param state the state on which we want to apply the operator
+     * @return the same object reference as the parameter on which we applied the operator
+     */
     public State apply(State state) {
         int rowBound = from.getRow() - m + 1;
         int colBound = from.getCol() + n - 1;
@@ -43,6 +66,13 @@ public class Operator {
         return (operator instanceof Operator o) && o.from.equals(this.from) && o.n == this.n && o.m == this.m;
     }
 
+    /**
+     * A function that returns an {@code Operator} object,if the positions in the given parameter form a rectangle in the game.
+     *
+     * @param positions a list that contains {@code Position} objects
+     * @return {@code null} if there isn't any operators that can be created from the given positions;
+     * {@code Operator} object otherwise
+     */
     public static Operator of(List<Position> positions) {
         if (positions == null || positions.isEmpty()) {
             return null;
