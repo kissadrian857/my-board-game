@@ -43,17 +43,17 @@ public class State {
         return squares[row][col].getColour();
     }
 
-    @Override
-    public String toString() {
-        StringBuilder s = new StringBuilder();
-        for (int i = 0; i < BOARD_SIZE; i++) {
-            for (int j = 0; j < BOARD_SIZE; j++) {
-                s.append(squares[i][j].toString()).append(" ");
-            }
-            s.append("\n");
-        }
-        return s.toString();
-    }
+//    @Override
+//    public String toString() {
+//        StringBuilder s = new StringBuilder();
+//        for (int i = 0; i < BOARD_SIZE; i++) {
+//            for (int j = 0; j < BOARD_SIZE; j++) {
+//                s.append(squares[i][j].toString()).append(" ");
+//            }
+//            s.append("\n");
+//        }
+//        return s.toString();
+//    }
 
     public boolean isGoal() {
         for (int i = 0; i < BOARD_SIZE; i++) {
@@ -64,22 +64,22 @@ public class State {
         return true;
     }
 
-    @Override
-    public boolean equals(Object state) {
-        if (state == this) {
-            return true;
-        }
-        if (state instanceof State s) {
-            for (int i = 0; i < BOARD_SIZE; i++) {
-                for (int j = 0; j < BOARD_SIZE; j++) {
-                    if (!s.squares[i][j].equals(this.squares[i][j])) {
-                        return false;
-                    }
-                }
-            }
-        } else {
-            return false;
-        }
-        return true;
-    }
+//    @Override
+//    public boolean equals(Object state) {
+//        if (state == this) {
+//            return true;
+//        }
+//        if (state instanceof State s) {
+//            for (int i = 0; i < BOARD_SIZE; i++) {
+//                for (int j = 0; j < BOARD_SIZE; j++) {
+//                    if (!s.squares[i][j].equals(this.squares[i][j])) {
+//                        return false;
+//                    }
+//                }
+//            }
+//        } else {
+//            return false;
+//        }
+//        return true;
+//    }
 }

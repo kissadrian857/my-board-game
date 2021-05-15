@@ -32,11 +32,11 @@ class OperatorTest {
         o = new Operator(new Position(0, 1), 1, 1);
         assertEquals(o.apply(state).colourOfSquare(new Position(0, 1)), Colour.BLUE);
         state = State.startState();
-        o =new Operator(new Position(1,0),2,2);
-        assertEquals(o.apply(state).colourOfSquare(new Position(1,1)),Colour.RED);
-        assertEquals(state.colourOfSquare(new Position(0,0)),Colour.RED);
-        assertEquals(state.colourOfSquare(new Position(0,1)),Colour.BLUE);
-        assertEquals(state.colourOfSquare(new Position(1,0)),Colour.BLUE);
+        o = new Operator(new Position(1, 0), 2, 2);
+        assertEquals(o.apply(state).colourOfSquare(new Position(1, 1)), Colour.RED);
+        assertEquals(state.colourOfSquare(new Position(0, 0)), Colour.RED);
+        assertEquals(state.colourOfSquare(new Position(0, 1)), Colour.BLUE);
+        assertEquals(state.colourOfSquare(new Position(1, 0)), Colour.BLUE);
     }
 
     @Test

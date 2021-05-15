@@ -24,17 +24,24 @@ class BoardGameModelTest {
 
     @Test
     void makeStep() {
-
+        State state = State.startState();
+        Operator o = new Operator(new Position(0, 0), 1, 1);
+        o.apply(state);
+        boardGameModel.makeStep(o);
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                assertEquals(state.colourOfSquare(new Position(i, j)), boardGameModel.colourOfSquare(new Position(i, j)));
+            }
+        }
     }
 
     @Test
     void isOver() {
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
-                if ((i + j) % 2 == 0){
+                if ((i + j) % 2 == 0) {
                     assertFalse(boardGameModel.isOver());
-                    boardGameModel.makeStep(new Operator(new Position(i,j),1,1));
-
+                    boardGameModel.makeStep(new Operator(new Position(i, j), 1, 1));
                 }
             }
         }

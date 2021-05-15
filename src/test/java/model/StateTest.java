@@ -20,11 +20,11 @@ class StateTest {
         state = State.startState();
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
-                Position position = new Position(i,j);
+                Position position = new Position(i, j);
                 if ((i + j) % 2 == 0) {
-                    assertEquals(Colour.BLUE,state.colourOfSquare(position));
-                }else{
-                    assertEquals(Colour.RED,state.colourOfSquare(position));
+                    assertEquals(Colour.BLUE, state.colourOfSquare(position));
+                } else {
+                    assertEquals(Colour.RED, state.colourOfSquare(position));
                 }
             }
         }
@@ -45,16 +45,13 @@ class StateTest {
         assertEquals(Colour.RED, state.colourOfSquare(new Position(1, 0)));
     }
 
-//    @Test
-//    void testToString() {
-//    }
 
     @Test
     void isGoal() {
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
-                Position position = new Position(i,j);
-                state.modifySquareColour(position,Colour.RED);
+                Position position = new Position(i, j);
+                state.modifySquareColour(position, Colour.RED);
             }
         }
 
