@@ -47,6 +47,9 @@ public class BoardGameModel {
     }
 
     public boolean isValidStep(Operator operator) {
+        if(operator == null){
+            return false;
+        }
         for (var o : operators) {
             if (operator.equals(o) && operator.isApplicable(actualState)) {
                 return true;
@@ -71,8 +74,8 @@ public class BoardGameModel {
         return actualState.colourOfSquare(position);
     }
 
-    @Override
-    public String toString() {
-        return actualState.toString();
-    }
+//    @Override
+//    public String toString() {
+//        return actualState.toString();
+//    }
 }
