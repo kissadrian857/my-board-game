@@ -35,17 +35,17 @@ public class Operator {
         return state;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder s = new StringBuilder();
-        StringJoiner sj = new StringJoiner(",", "(", ")");
-        sj.add(Integer.toString(from.getRow()))
-                .add(Integer.toString(from.getCol()))
-                .add(Integer.toString(n))
-                .add(Integer.toString(m));
-
-        return s.append(sj.toString()).toString();
-    }
+//    @Override
+//    public String toString() {
+//        StringBuilder s = new StringBuilder();
+//        StringJoiner sj = new StringJoiner(",", "(", ")");
+//        sj.add(Integer.toString(from.getRow()))
+//                .add(Integer.toString(from.getCol()))
+//                .add(Integer.toString(n))
+//                .add(Integer.toString(m));
+//
+//        return s.append(sj.toString()).toString();
+//    }
 
     @Override
     public boolean equals(Object operator) {
@@ -57,7 +57,7 @@ public class Operator {
     }
 
     public static Operator of(List<Position> positions) {
-        if(positions.isEmpty()){
+        if(positions==null || positions.isEmpty()){
             return null;
         }
         int minRow = Integer.MAX_VALUE;
