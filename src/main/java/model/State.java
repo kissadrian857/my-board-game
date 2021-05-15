@@ -3,7 +3,7 @@ package model;
 import static model.BoardGameModel.BOARD_SIZE;
 
 public class State {
-    private Square[][] squares = new Square[BoardGameModel.BOARD_SIZE ][BoardGameModel.BOARD_SIZE ];
+    private Square[][] squares = new Square[BoardGameModel.BOARD_SIZE][BoardGameModel.BOARD_SIZE];
 
     public State() {
         for (int i = 0; i < BOARD_SIZE; i++) {
@@ -55,7 +55,7 @@ public class State {
         return s.toString();
     }
 
-    public boolean isGoal(){
+    public boolean isGoal() {
         for (int i = 0; i < BOARD_SIZE; i++) {
             for (int j = 0; j < BOARD_SIZE; j++) {
                 if (squares[i][j].getColour() == Colour.BLUE) return false;
@@ -65,7 +65,21 @@ public class State {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public boolean equals(Object state) {
+        if (state == this) {
+            return true;
+        }
+        if (state instanceof State s) {
+            for (int i = 0; i < BOARD_SIZE; i++) {
+                for (int j = 0; j < BOARD_SIZE; j++) {
+                    if (!s.squares[i][j].equals(this.squares[i][j])) {
+                        return false;
+                    }
+                }
+            }
+        } else {
+            return false;
+        }
+        return true;
     }
 }
