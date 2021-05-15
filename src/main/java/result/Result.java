@@ -2,17 +2,29 @@ package result;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlRootElement;
 
+/**
+ * Represents the result of a match on board game.
+ */
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Result {
     private String player1;
     private String player2;
     private String winner;
 
+    /**
+     * No args constructor.
+     */
     public Result() {
     }
 
+    /**
+     * Parametrized constructor.
+     *
+     * @param player1 the name of player1
+     * @param player2 the name of player2
+     * @param winner the name of the winner
+     */
     public Result(String player1, String player2, String winner) {
         this.player1 = player1;
         this.player2 = player2;

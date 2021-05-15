@@ -8,6 +8,10 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Wrapper class for a list of {@code Result} objects.
+ */
+
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ResultListWrapper {
@@ -15,6 +19,11 @@ public class ResultListWrapper {
     @XmlElement(name = "result")
     private List<Result> results = new ArrayList<>();
 
+    /**
+     * Parametrized constructor.
+     *
+     * @param results the list of {@code Result} objects to be wrapped in
+     */
     public ResultListWrapper(List<Result> results) {
         this.results = results;
     }
