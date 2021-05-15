@@ -21,22 +21,24 @@ public class MainMenuController {
 
     @FXML
     private void handleNewGame(ActionEvent event) throws Exception {
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         loadScene(stage, "/setPlayers.fxml");
     }
+
     @FXML
     private void handleScores(ActionEvent event) throws Exception {
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        loadScene(stage,"/resultView.fxml");
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        loadScene(stage, "/resultView.fxml");
     }
+
     @FXML
-    private void handleExit(ActionEvent event){
+    private void handleExit(ActionEvent event) {
         Platform.exit();
     }
 
     private void loadScene(Stage stage, String resource) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource(resource));
-        Scene scene = new Scene(root,800,600);
+        Scene scene = new Scene(root, 800, 600);
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
