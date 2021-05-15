@@ -3,6 +3,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.tinylog.Logger;
 import result.ResultContainer;
 
 public class BoardGameApplication extends Application {
@@ -14,6 +15,7 @@ public class BoardGameApplication extends Application {
         Scene scene = new Scene(root,400,400);
         stage.setScene(scene);
         stage.setResizable(false);
+        Logger.info("Application started");
         stage.show();
     }
 }

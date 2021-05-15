@@ -52,7 +52,7 @@ public class EndOfGameController {
     }
 
     private void loadScene(Stage stage, String resource,int width,int height) throws Exception {
-        Logger.debug(String.format("Loading %s scene"),resource);
+        Logger.debug(String.format("Loading %s scene",resource));
         Parent root = FXMLLoader.load(getClass().getResource(resource));
         Scene scene = new Scene(root,width,height);
         stage.setScene(scene);
