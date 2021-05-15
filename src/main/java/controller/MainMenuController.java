@@ -27,7 +27,7 @@ public class MainMenuController {
     @FXML
     private void handleScores(ActionEvent event) throws Exception {
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        loadScene(stage,"/scoresView.fxml");
+        loadScene(stage,"/resultView.fxml");
     }
     @FXML
     private void handleExit(ActionEvent event){
