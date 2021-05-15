@@ -1,5 +1,8 @@
 package model;
 
+/**
+ * Enum class that represents colours.
+ */
 public enum Colour {
     BLUE,
     RED;
