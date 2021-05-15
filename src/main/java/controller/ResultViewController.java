@@ -15,6 +15,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.State;
+import org.tinylog.Logger;
 import result.Result;
 import result.ResultContainer;
 
@@ -47,6 +48,8 @@ public class ResultViewController {
 
     @FXML
     private void handleBack(ActionEvent event){
+        Logger.info("Clicked on back Button");
+        Logger.debug("Loading /mainMenu.fxml scene");
         try{
             Parent root = FXMLLoader.load(getClass().getResource("/mainMenu.fxml"));
             Scene scene = new Scene(root,400,400);

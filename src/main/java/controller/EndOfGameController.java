@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import org.tinylog.Logger;
 
 
 public class EndOfGameController {
@@ -38,17 +39,20 @@ public class EndOfGameController {
 
     @FXML
     private void newGameClicked(ActionEvent event) throws Exception {
+        Logger.info("Clicked on newGameButton Button");
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         loadScene(stage,"/setPlayers.fxml",800,600);
     }
 
     @FXML
     private void returnToMainClicked(ActionEvent event) throws Exception {
+        Logger.info("Clicked on returnToMain Button");
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         loadScene(stage,"/mainMenu.fxml",400,400);
     }
 
     private void loadScene(Stage stage, String resource,int width,int height) throws Exception {
+        Logger.debug(String.format("Loading %s scene"),resource);
         Parent root = FXMLLoader.load(getClass().getResource(resource));
         Scene scene = new Scene(root,width,height);
         stage.setScene(scene);

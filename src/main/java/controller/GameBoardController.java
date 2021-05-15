@@ -20,6 +20,7 @@ import javafx.stage.Stage;
 import model.BoardGameModel;
 import model.Operator;
 import model.Position;
+import org.tinylog.Logger;
 import result.Result;
 import result.ResultContainer;
 
@@ -127,6 +128,7 @@ public class GameBoardController {
     }
 
     private void handleMousePrimary(Position position) {
+        Logger.info(String.format("Used left click on square(%d,%d)",position.getRow(),position.getCol()));
         StackPane square = getSquare(position);
         if (!selectedPositions.contains(position)) {
             selectedPositions.add(new Position(position.getRow(), position.getCol()));
@@ -138,6 +140,7 @@ public class GameBoardController {
     }
 
     private void handleMouseSecondary(MouseEvent event) {
+        Logger.info("Used right click on game board.");
         Operator operator = Operator.of(selectedPositions);
         if (operator != null && boardGameModel.isValidStep(operator)) {
             boardGameModel.makeStep(operator);
@@ -198,6 +201,7 @@ public class GameBoardController {
     }
 
     private void handleGameOver(Stage stage) {
+        Logger.debug("The game is over");
         try {
             ResultContainer.addResult(new Result(player1.get(),player2.get(),nextPlayer.get()));
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/endOfGame.fxml"));

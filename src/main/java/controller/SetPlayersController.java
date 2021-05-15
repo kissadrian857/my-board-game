@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.tinylog.Logger;
 
 public class SetPlayersController {
     @FXML
@@ -29,6 +30,7 @@ public class SetPlayersController {
     @FXML
     private void clickHandler(ActionEvent e) throws Exception {
         var stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        Logger.info("Clicked on startButton Button");
         loadNextScene(stage);
     }
 
@@ -50,6 +52,7 @@ public class SetPlayersController {
         Scene scene = new Scene(root, 800, 600);
         stage.setScene(scene);
         stage.setResizable(false);
+        Logger.debug("Loading /gameBoard.fxml scene");
         stage.show();
         stage.setOnCloseRequest(windowEvent -> {
             windowEvent.consume();

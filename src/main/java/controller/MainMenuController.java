@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import org.tinylog.Logger;
 
 
 public class MainMenuController {
@@ -22,17 +23,20 @@ public class MainMenuController {
     @FXML
     private void handleNewGame(ActionEvent event) throws Exception {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Logger.info("Clicked on newGameButton Button.");
         loadScene(stage, "/setPlayers.fxml");
     }
 
     @FXML
     private void handleScores(ActionEvent event) throws Exception {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Logger.info("Clicked on scoresButton Button.");
         loadScene(stage, "/resultView.fxml");
     }
 
     @FXML
     private void handleExit(ActionEvent event) {
+        Logger.info("Clicked on exitButton Button.");
         Platform.exit();
     }
 
@@ -41,6 +45,7 @@ public class MainMenuController {
         Scene scene = new Scene(root, 800, 600);
         stage.setScene(scene);
         stage.setResizable(false);
+        Logger.debug(String.format("Loading %s scene",resource));
         stage.show();
     }
 }
