@@ -26,4 +26,13 @@ public class Square {
         if (this.colour == Colour.BLUE) return "B";
         else return "R";
     }
+
+    @Override
+    public boolean equals(Object square) {
+        if(square == this){
+            return true;
+        }
+
+        return (square instanceof Square s) && s.position.equals(this.position) && s.colour == this.colour;
+    }
 }

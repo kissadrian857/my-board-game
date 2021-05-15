@@ -29,9 +29,20 @@ class BoardGameModelTest {
 
     @Test
     void isOver() {
+        assertFalse(boardGameModel.isOver());
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                if ((i + j) % 2 == 0){
+                    boardGameModel.makeStep(new Operator(new Position(i,j),1,1));
+                }
+            }
+        }
+        assertTrue(boardGameModel.isOver());
     }
 
     @Test
     void colourOfSquare() {
+        assertEquals(Colour.RED, boardGameModel.colourOfSquare(new Position(0, 1)));
+        assertEquals(Colour.BLUE, boardGameModel.colourOfSquare(new Position(0, 0)));
     }
 }
