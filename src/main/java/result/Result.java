@@ -27,4 +27,16 @@ public class Result {
                 ", winner='" + winner + '\'' +
                 '}';
     }
+
+    public String getPlayer1() {
+        return player1;
+    }
+
+    public String getPlayer2() {
+        return player2;
+    }
+
+    public String getWinner() {
+        return winner;
+    }
 }
