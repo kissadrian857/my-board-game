@@ -24,7 +24,7 @@
                <font>
                   <Font size="20.0" />
                </font></Label>
-                <TextField fx:id="playerOne" onKeyReleased="#handleKeyReleased">
+                <TextField fx:id="player1" onKeyReleased="#handleKeyReleased">
                <font>
                   <Font size="20.0" />
                </font></TextField>
@@ -34,7 +34,7 @@
                <font>
                   <Font size="20.0" />
                </font></Label>
-                <TextField fx:id="playerTwo" onKeyReleased="#handleKeyReleased">
+                <TextField fx:id="player2" onKeyReleased="#handleKeyReleased">
                <font>
                   <Font size="20.0" />
                </font></TextField>

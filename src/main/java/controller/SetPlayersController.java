@@ -17,9 +17,9 @@ import org.tinylog.Logger;
 // CHECKSTYLE:OFF
 public class SetPlayersController {
     @FXML
-    private TextField playerOne;
+    private TextField player1;
     @FXML
-    private TextField playerTwo;
+    private TextField player2;
     @FXML
     private Button startButton;
 
@@ -37,8 +37,8 @@ public class SetPlayersController {
 
     @FXML
     private void handleKeyReleased() {
-        String plOne = playerOne.getText();
-        String plTwo = playerTwo.getText();
+        String plOne = player1.getText();
+        String plTwo = player2.getText();
         boolean disableButton = plOne.trim().isEmpty() || plTwo.trim().isEmpty();
         startButton.setDisable(disableButton);
     }
@@ -47,9 +47,9 @@ public class SetPlayersController {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gameBoard.fxml"));
         Parent root = fxmlLoader.load();
         GameBoardController controller = fxmlLoader.<GameBoardController>getController();
-        controller.setPlayer1(playerOne.getText());
-        controller.setPlayer2(playerTwo.getText());
-        controller.setNextPlayer(playerOne.getText());
+        controller.setPlayer1(player1.getText());
+        controller.setPlayer2(player2.getText());
+        controller.setNextPlayer(player1.getText());
         Scene scene = new Scene(root, 800, 600);
         stage.setScene(scene);
         stage.setResizable(false);
