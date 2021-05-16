@@ -38,7 +38,6 @@ public class ResultContainer {
             Logger.info("Read results from results.xml");
             try {
                 ResultListWrapper r = JAXBHelper.fromXML(ResultListWrapper.class, new FileInputStream("results.xml"));
-                System.out.println(r.getResults());
                 results = r.getResults();
             } catch (Exception e) {
                 e.printStackTrace();
