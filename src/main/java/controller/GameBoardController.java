@@ -28,7 +28,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
+// CHECKSTYLE:OFF
 public class GameBoardController {
     private BoardGameModel boardGameModel = new BoardGameModel();
     @FXML
@@ -224,3 +224,4 @@ public class GameBoardController {
         alert.showAndWait();
     }
 }
+// CHECKSTYLE:ON

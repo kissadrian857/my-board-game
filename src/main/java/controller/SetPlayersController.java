@@ -14,6 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.tinylog.Logger;
 
+// CHECKSTYLE:OFF
 public class SetPlayersController {
     @FXML
     private TextField playerOne;
@@ -66,3 +67,4 @@ public class SetPlayersController {
     }
 
 }
+// CHECKSTYLE:ON

@@ -20,7 +20,7 @@ import result.Result;
 import result.ResultContainer;
 
 
-
+// CHECKSTYLE:OFF
 public class ResultViewController {
     @FXML
     TableView<Result> tableView;
@@ -64,3 +64,4 @@ public class ResultViewController {
     }
 
 }
+// CHECKSTYLE:ON

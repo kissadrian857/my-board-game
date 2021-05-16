@@ -11,7 +11,7 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import org.tinylog.Logger;
 
-
+// CHECKSTYLE:OFF
 public class MainMenuController {
     @FXML
     private Button newGameButton;
@@ -49,3 +49,4 @@ public class MainMenuController {
         stage.show();
     }
 }
+// CHECKSTYLE:ON

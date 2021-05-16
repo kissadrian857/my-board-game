@@ -50,8 +50,8 @@ public class State {
      *
      * @param position the position of the square which colour we want to modify
      * @param colour   the colour that we want to replace the original with
-     * @return the same {@code State} object on which this method is applied,but the colour of square on {@paramref position} is
-     * set to {@paramref colour}
+     * @return the same {@code State} object on which this method is applied,but the colour of square on position is
+     * set to colour
      */
     public State modifySquareColour(Position position, Colour colour) {
         int row = position.getRow();
@@ -64,7 +64,7 @@ public class State {
      * Returns the colour of square on a given position.
      *
      * @param position the position of the square which colour we want to know
-     * @return the colour of the square on {@paramref position}
+     * @return the colour of the square on position
      */
     public Colour colourOfSquare(Position position) {
         int row = position.getRow();

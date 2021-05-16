@@ -13,7 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.tinylog.Logger;
 
-
+// CHECKSTYLE:OFF
 public class EndOfGameController {
     @FXML
     public ImageView cupImageView;
@@ -60,3 +60,4 @@ public class EndOfGameController {
         stage.show();
     }
 }
+// CHECKSTYLE:ON
