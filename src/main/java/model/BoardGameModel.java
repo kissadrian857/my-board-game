@@ -23,6 +23,9 @@ public class BoardGameModel {
         }
     }
 
+    /**
+     * Size of the board
+     */
     public static final int BOARD_SIZE = 4;
     private List<Operator> operators;
     private State actualState;
