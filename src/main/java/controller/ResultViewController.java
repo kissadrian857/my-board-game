@@ -10,14 +10,21 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.State;
 import org.tinylog.Logger;
+import result.LocalDateTimeAdapter;
 import result.Result;
 import result.ResultContainer;
+
+import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 
 
 // CHECKSTYLE:OFF
@@ -31,7 +38,7 @@ public class ResultViewController {
     @FXML
     TableColumn<Result,String> winner;
     @FXML
-    TableColumn<Result,String> date;
+    TableColumn<Result, LocalDateTime> date;
 
     @FXML
     private void initialize(){
@@ -40,6 +47,20 @@ public class ResultViewController {
         winner.setCellValueFactory(new PropertyValueFactory<>("winner"));
         date.setCellValueFactory(new PropertyValueFactory<>("date"));
 
+        date.setCellFactory(column -> {
+            TableCell<Result, LocalDateTime> cell = new TableCell<>() {
+                @Override
+                protected void updateItem(LocalDateTime item, boolean empty) {
+                    super.updateItem(item, empty);
+                    if(empty) {
+                        setText(null);
+                    } else {
+                        setText(item.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")));
+                    }
+                }
+            };
+            return cell;
+        });
         tableView.setItems(getObservable());
     }
 
