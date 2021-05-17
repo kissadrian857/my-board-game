@@ -11,6 +11,7 @@ public class Result {
     private String player1;
     private String player2;
     private String winner;
+    private String date;
 
     /**
      * No args constructor.
@@ -25,10 +26,11 @@ public class Result {
      * @param player2 the name of player2
      * @param winner the name of the winner
      */
-    public Result(String player1, String player2, String winner) {
+    public Result(String player1, String player2, String winner,String date) {
         this.player1 = player1;
         this.player2 = player2;
         this.winner = winner;
+        this.date = date;
     }
 
     @Override
@@ -50,5 +52,9 @@ public class Result {
 
     public String getWinner() {
         return winner;
+    }
+
+    public String getDate() {
+        return date;
     }
 }

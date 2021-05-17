@@ -30,12 +30,15 @@ public class ResultViewController {
     TableColumn<Result,String> player2;
     @FXML
     TableColumn<Result,String> winner;
+    @FXML
+    TableColumn<Result,String> date;
 
     @FXML
     private void initialize(){
         player1.setCellValueFactory(new PropertyValueFactory<>("player1"));
         player2.setCellValueFactory(new PropertyValueFactory<>("player2"));
         winner.setCellValueFactory(new PropertyValueFactory<>("winner"));
+        date.setCellValueFactory(new PropertyValueFactory<>("date"));
 
         tableView.setItems(getObservable());
     }

@@ -10,9 +10,10 @@
    <children>
       <TableView fx:id="tableView" layoutX="125.0" layoutY="32.0" prefHeight="450.0" prefWidth="550.0">
          <columns>
-            <TableColumn fx:id="player1" prefWidth="183.0" text="Player1" />
-            <TableColumn fx:id="player2" prefWidth="183.0" text="Player2" />
-            <TableColumn fx:id="winner" prefWidth="184.0" text="Winner" />
+            <TableColumn fx:id="player1" prefWidth="107.0" text="Player1" />
+            <TableColumn fx:id="player2" prefWidth="144.0" text="Player2" />
+            <TableColumn fx:id="winner" prefWidth="135.0" text="Winner" />
+            <TableColumn fx:id="date" prefWidth="163.0" text="End of Game" />
          </columns>
       </TableView>
       <Button fx:id="back" layoutX="292.0" layoutY="521.0" mnemonicParsing="false" onAction="#handleBack" text="Back to Main Menu">
