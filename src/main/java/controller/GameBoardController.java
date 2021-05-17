@@ -29,6 +29,7 @@ import result.ResultContainer;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -209,11 +210,8 @@ public class GameBoardController {
     private void handleGameOver(Stage stage) {
         Logger.debug("The game is over");
         try {
-            LocalDate date = LocalDate.now();
-            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("hh:mm:ss");
-            LocalTime time = LocalTime.now();
-            String d=date.toString()+" "+time.format(dtf);
-            ResultContainer.addResult(new Result(player1.get(),player2.get(),nextPlayer.get(),d));
+            LocalDateTime dateTime = LocalDateTime.now();
+            ResultContainer.addResult(new Result(player1.get(),player2.get(),nextPlayer.get(),dateTime));
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/endOfGame.fxml"));
             Parent root = fxmlLoader.load();
             EndOfGameController controller = fxmlLoader.<EndOfGameController>getController();
